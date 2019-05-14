@@ -6,6 +6,7 @@ login.addEventListener('click', () => {
 
     if (email == "abc@ma" && pass == "123") {
         document.location.href = "../html/pagetwo.html";
+        
     } else {
         alert("Wrong Credentials");
     }

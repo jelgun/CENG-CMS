@@ -1,4 +1,5 @@
 let login = document.getElementById('button');
+let back = document.getElementById('back');
 
 login.addEventListener('click', () => {
     let email = document.getElementById('email').value;
@@ -8,4 +9,8 @@ login.addEventListener('click', () => {
     } else {
         alert("Wrong Email Address");
     }
+});
+
+back.addEventListener('click', () => {
+    document.location.href = "../html/login.html";
 });
