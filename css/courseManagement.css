@@ -1,0 +1,34 @@
+.mydivouter{
+    position: relative;
+}
+.mydivoverlap{
+    position: relative;
+    z-index: 1;
+}
+.mybuttonoverlap{
+    z-index: 2;
+    display: none;
+    float: right;
+}
+.mydivouter:hover .mybuttonoverlap{ 
+	display:block;
+}
+
+.form-control {
+    width: 200px;
+    float: right;
+}
+
+.dropdown {
+    float: center;
+}
+
+#back {
+    float: right;
+}
+#back img {
+    background: transparent;
+    display: block;
+    height: 30px;  
+    width: 30px;
+}
