@@ -42,6 +42,10 @@ width:100px;
 .assigned{
 border:1px solid #BC2A4D;
 }
-.trash{
-background-color:red;
+.trsh{
+background-color:rgb(243, 29, 29);
+text-align: center;
 }
+.vr {
+    border-right: 1px solid #ccc !important;
+ }
