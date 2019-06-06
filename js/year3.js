@@ -14,7 +14,10 @@ $(function(){
         }
       },
       onDragLeave:function(){
-        
+        if (!f) {
+          prev = this.id;
+          f = 1;
+        }
         $(this).removeClass('over');
       },
       onDrop:function(e,source){
