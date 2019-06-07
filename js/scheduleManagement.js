@@ -65,8 +65,26 @@ window.addEventListener('load', function() {
                 revert:true
               });
             }
-            console.log('current: ' + this.id);
-            console.log('prev: ' + prev);
+            var courseCode = source.textContent
+            var cell = this.id
+            var $query = 'INSERT INTO Schedule (year, cell, course) VALUES (?, ?, ?);';
+            con.query($query, [1, cell, courseCode], function(err, rows) {
+                if(err){
+                    console.log(err);
+                    return;
+                }
+                console.log("Query succesfully executed(ins)");
+            });
+            if (prev !== -1) {
+              var $query = 'DELETE FROM Schedule WHERE year=? and cell=?';
+              con.query($query, [1, prev], function(err, rows) {
+                  if(err){
+                      console.log(err);
+                      return;
+                  }
+                  console.log("Query succesfully executed(del)");
+              });
+            }
           }
         });
         $('.trsh').droppable({
@@ -78,8 +96,16 @@ window.addEventListener('load', function() {
             $(source).removeClass('trash');
           },
           onDrop:function(e,source){
+            var $query = 'DELETE FROM Schedule WHERE year=? and cell=?';
+            con.query($query, [1, prev], function(err, rows) {
+                if(err){
+                    console.log(err);
+                    return;
+                }
+                console.log("Query succesfully executed(del)");
+            });
             $(source).remove();
-            console.log(prev);
+            
             f = 0;
           }
         });
