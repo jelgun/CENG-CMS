@@ -32,58 +32,105 @@ window.addEventListener('load', function() {
 
         element.insertAdjacentHTML( 'afterbegin', str );
       }
-      $(function(){
-        $('.item').draggable({
-          revert:true,
-          proxy:'clone'
-        });
-        $('.right td.drop').droppable({
-          onDragEnter:function(){
-            $(this).addClass('over');
-            if (!f) {
-              prev = this.id;
-              f = 1;
-            }
-          },
-          onDragLeave:function(){
-            if (!f) {
-              prev = this.id;
-              f = 1;
-            }
-            $(this).removeClass('over');
-          },
-          onDrop:function(e,source){
-            f = 0;
-            $(this).removeClass('over');
-            if ($(source).hasClass('assigned')){
-              $(this).append(source);
-            } else {
-              prev = -1;
-              var c = $(source).clone().addClass('assigned');
-              $(this).append(c);
-              c.draggable({
-                revert:true
-              });
-            }
-            console.log('current: ' + this.id);
-            console.log('prev: ' + prev);
+
+      var $query = 'SELECT * FROM Schedule WHERE year=? and course like ?;';
+      con.query($query, [4, "CENG 4%"], function(err, rows) {
+          if(err){
+              console.log(err);
+              return;
           }
-        });
-        $('.trsh').droppable({
-          accept:'.assigned',
-          onDragEnter:function(e,source){
-            $(source).addClass('trash');
-          },
-          onDragLeave:function(e,source){
-            $(source).removeClass('trash');
-          },
-          onDrop:function(e,source){
-            $(source).remove();
-            console.log(prev);
-            f = 0;
+          for (let i = 0; i < rows.length; i++) {
+            var cell = rows[i]["cell"]
+            var course = rows[i]["course"]
+            var cellr = parseInt(cell / 5, 10) + 1
+            var cellc = cell % 5 + 1
+            var element = document.getElementsByClassName('rc-'+cellr.toString()+'-'+cellc.toString())[0]
+            var str = '<div class="assigned item">'+course+'</div>'
+
+            element.insertAdjacentHTML( 'afterbegin', str );
           }
-        });
+
+          $(function(){
+            $('.item').draggable({
+              revert:true,
+              proxy:'clone'
+            });
+            $('.right td.drop').droppable({
+              onDragEnter:function(){
+                $(this).addClass('over');
+                if (!f) {
+                  prev = this.id;
+                  f = 1;
+                }
+              },
+              onDragLeave:function(){
+                if (!f) {
+                  prev = this.id;
+                  f = 1;
+                }
+                $(this).removeClass('over');
+              },
+              onDrop:function(e,source){
+                f = 0;
+                $(this).removeClass('over');
+                if ($(source).hasClass('assigned')){
+                  $(this).append(source);
+                } else {
+                  prev = -1;
+                  var c = $(source).clone().addClass('assigned');
+                  $(this).append(c);
+                  c.draggable({
+                    revert:true
+                  });
+                }
+                var courseCode = source.textContent
+                var cell = this.id
+                var $query = 'INSERT INTO Schedule (year, cell, course) VALUES (?, ?, ?);';
+                con.query($query, [4, cell, courseCode], function(err, rows) {
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    console.log("Query succesfully executed(ins)");
+                });
+                if (prev !== -1) {
+                  var $query = 'DELETE FROM Schedule WHERE year=? and cell=?';
+                  con.query($query, [4, prev], function(err, rows) {
+                      if(err){
+                          console.log(err);
+                          return;
+                      }
+                      console.log("Query succesfully executed(del)");
+                  });
+                }
+              }
+            });
+            $('.trsh').droppable({
+              accept:'.assigned',
+              onDragEnter:function(e,source){
+                $(source).addClass('trash');
+              },
+              onDragLeave:function(e,source){
+                $(source).removeClass('trash');
+              },
+              onDrop:function(e,source){
+                var $query = 'DELETE FROM Schedule WHERE year=? and cell=?';
+                con.query($query, [4, prev], function(err, rows) {
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    console.log("Query succesfully executed(del)");
+                });
+                $(source).remove();
+                
+                f = 0;
+              }
+            });
+          });
       });
+
+      
   });
 })
 
