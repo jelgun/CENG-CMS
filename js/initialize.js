@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const bcrypt = require('bcryptjs');
 
 // First you need to create a connection to the db
 const con = mysql.createConnection({
@@ -8,6 +9,32 @@ const con = mysql.createConnection({
   database: 'CENG'
 });
 
+con.connect((err) => {
+	if(err){
+	  console.log('Error connecting to Db');
+	  return;
+	}
+	console.log('Connection established');
+  });
+
+var $query = 'CREATE TABLE User (username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, isAdmin INT);';
+con.query($query, function(err, rows) {
+	if(err){
+		console.log(err);
+		return;
+	}
+	var salt = bcrypt.genSaltSync(10);
+	var hash = bcrypt.hashSync("admin", salt);
+	var $query = 'INSERT INTO User(username, password, isAdmin) VALUES(?, ?, ?);';
+	con.query($query, ["admin@iyte.edu.tr", hash, 1], function(err, rows) {
+		if(err){
+			console.log(err);
+			return;
+		}
+		
+	});
+
+});
 
 const rp = require('request-promise');
 var url = 'http://ceng.iyte.edu.tr/people/#1509273723231-a94f5ba0-b99e';

@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const bcrypt = require('bcryptjs');
 
 const con = mysql.createConnection({
   host: 'localhost',
@@ -21,17 +22,16 @@ login.addEventListener('click', () => {
     let email = document.getElementById('email').value;
     let pass = document.getElementById('password').value;
     $query = 'SELECT * FROM User WHERE username = ?';
+    console.log('click')
     con.query($query, email, function(err, rows) {
         if(err){
-            console.log("An error ocurred performing the query.");
             console.log(err);
             return;
         }
-        console.log("Query succesfully executed", rows);
-        if (rows.length && pass == rows[0]['password']) {
-            document.location.href = "../html/courseManagement.html";
+        if (rows.length && bcrypt.compareSync(pass, rows[0]["password"])) {
+          document.location.href = "../html/courseManagement.html";
         } else {
-            alert("Wrong Credentials");
+          alert("Wrong Credentials");
         }
     });
     

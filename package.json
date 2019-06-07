@@ -20,6 +20,10 @@
     "electron": "^5.0.2"
   },
   "dependencies": {
-    "mysql": "^2.17.1"
+    "bcryptjs": "^2.4.3",
+    "cheerio": "^1.0.0-rc.3",
+    "mysql": "^2.17.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
   }
 }
