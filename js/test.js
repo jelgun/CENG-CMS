@@ -234,7 +234,9 @@ rp(url)
 				.then(function(html){
 					var activeCourses = []
 					$("strong > a", html).each(function (index, element) {
-						activeCourses.push($(element).text());
+						var courseCode = $(element).text();
+						courseCode = courseCode.slice(0, 8);
+						activeCourses.push(courseCode);
 					});
 					for (let i = 0; i < courses.length; i++) {
 						if (activeCourses.includes(courses[i][0])) {
@@ -242,7 +244,7 @@ rp(url)
 						}
 					}
 					//console.log(courses)
-					var $query = "CREATE TABLE IF NOT EXISTS Course (courseCode VARCHAR(255) NOT NULL, courseName VARCHAR(255) NOT NULL,prerequisite VARCHAR(255) NOT NULL, courseInfo VARCHAR(500) NOT NULL,status INT);"
+					var $query = "CREATE TABLE IF NOT EXISTS Course (courseCode VARCHAR(255) NOT NULL, courseName VARCHAR(255) NOT NULL,prerequisite VARCHAR(255) NOT NULL, courseInfo VARCHAR(5000) NOT NULL,status INT);"
 					con.query($query, function(err, rows) {
 						if(err){
 							console.log("err3create");
@@ -250,6 +252,7 @@ rp(url)
 						}
 						for (let i = 0; i < courses.length; i++) {
 							var $query = "SELECT * FROM Course WHERE courseCode = ? and courseName = ? and prerequisite = ? and courseInfo = ? and status = ?;";
+							
 							con.query($query, [courses[i][0], courses[i][1], courses[i][4], courses[i][3], courses[i][2]], function(err, rows) {
 								if(err){
 									console.log("err3check");
@@ -259,7 +262,7 @@ rp(url)
 									var $query = "INSERT INTO Course (courseCode, courseName, prerequisite, courseInfo, status) VALUES (?, ?, ?, ?, ?)";
 									con.query($query, [courses[i][0], courses[i][1], courses[i][4], courses[i][3], courses[i][2]], function(err, rows) {
 										if(err){
-											console.log("err4ins");
+											console.log(err);
 											return;
 										}
 										
