@@ -1,0 +1,40 @@
+.vr {
+    border-right: 1px solid #ccc !important;
+ 
+ }
+
+
+#back {
+    float: right;
+    border:none;
+    color: #007BFF;
+    background-color: white;
+}
+
+#left-arrow{
+  float: left;
+  border:none;
+  color: #007BFF;
+  background-color: white;
+}
+
+.mydivouter{
+    position: relative;
+}
+.mybuttonoverlap{
+    z-index: 2;
+    display: none;
+    float: right;
+}
+.mydivouter:hover .mybuttonoverlap{
+	display:block;
+}
+
+#lst-grp{
+  width: 90%;
+}
+
+#btn-modify{
+  margin-right: 5px;
+}
+

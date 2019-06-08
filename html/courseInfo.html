@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Course Managemen</title>
+    <title>Course Info</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/courseManagement.css">
+    <link rel="stylesheet" href="../css/emailList.css">
   </head>
   <body>
     <div class="row">
@@ -22,14 +22,21 @@
 				<div>
 					<div class="row">
 						<div class="col">
-							<button type="button" class="btn btn-outline-primary">Add Course</button>
+						    <button id="left-arrow"><i class="fas fa-angle-left fa-2x"></i></button>
+                            <h3 id="header" class="ml-5">View Course Information</h3>
 						</div>
 					</div>
-					<ul class="list-group mt-4">
-						<li class="list-group-item mydivouter">CENG 316 <input type="button" class="mybuttonoverlap btn btn-info" value="View"/> </li>
-						<li class="list-group-item mydivouter">CENG 314 <input type="button" class="mybuttonoverlap btn btn-info" value="View"/> </li>
-						<li class="list-group-item mydivouter">CENG 312 <input type="button" class="mybuttonoverlap btn btn-info" value="View"/> </li>
-					</ul>
+                    <h3>CENG 314</h3>
+                    <h4>Embedded Systems</h4>
+                    <h5>Instructors: </h5>
+                    <h5>Assistants: </h5>
+                    <h5>Prerequisite: </h5>
+                    <p>Course Info: </p>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-primary">Edit Course</button>
+                        <button type="button" class="btn btn-danger">Delete Course</button>
+                    </div>
+                    
 				</div>
 			</div>
     </div>
