@@ -16,6 +16,11 @@ con.connect((err) => {
 });
 
 window.addEventListener('load', function() {
+    document.getElementById('fileInput').onchange = function () {
+        var rawdata = fs.readFileSync(this.files[0].path);  
+        var data = JSON.parse(rawdata);
+        console.log(data)
+    };
     let rawdata = fs.readFileSync('extra/data.json');  
     let data = JSON.parse(rawdata);
     if (data["isAdmin"]) {
