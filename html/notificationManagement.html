@@ -3,20 +3,37 @@
   <head>
     <meta charset="UTF-8">
     <title>Notification Management</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/notificationManagement.css">
   </head>
   <body>
     <div class="row">
-      <div class="col-3">
+      <div class="col-3 vr">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="courseManagement.html" role="tab" aria-controls="v-pills-home" aria-selected="true">Course Management</a>
           <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="scheduleManagement.html" role="tab" aria-controls="v-pills-profile" aria-selected="false">Schedule Management</a>
           <a class="nav-link active" id="v-pills-messages-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false">Notification Management</a>
         </div>
       </div>
-      <div class="col-9">
-        notification
+      <div class="col-9 mt-3">
+        <button id="back"><i class="fas fa-sign-out-alt fa-2x"></i></button>
+
+        <div>
+					<div class="row">
+						<div class="col">
+							<button type="button" class="btn btn-outline-primary">Import Email List</button>
+						</div>
+
+
+					</div>
+					<ul id="list-grp" class="list-group mt-4">
+						<li class="list-group-item mydivouter">Undergraduate E-mail List<input type="button" class="mybuttonoverlap btn btn-info" value="Show"/> </li>
+						<li class="list-group-item mydivouter">Graduate E-mail List <input type="button" class="mybuttonoverlap btn btn-info" value="Show"/> </li>
+						<li class="list-group-item mydivouter">CENG E-mail List <input type="button" class="mybuttonoverlap btn btn-info" value="Show"/> </li>
+					</ul>
+				</div>
+			</div>
       </div>
-    </div>
   </body>
 </html>

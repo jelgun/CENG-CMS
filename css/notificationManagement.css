@@ -1,0 +1,26 @@
+#back {
+    float: right;
+    border:none;
+    color: #007BFF;
+    background-color: white;
+}
+
+.mydivouter{
+    position: relative;
+}
+
+.mydivouter:hover .mybuttonoverlap{
+	display:block;
+}
+
+.mybuttonoverlap{
+    z-index: 2;
+    display: none;
+    float: right;
+}
+
+
+.vr {
+    border-right: 1px solid #ccc !important;
+ }
+

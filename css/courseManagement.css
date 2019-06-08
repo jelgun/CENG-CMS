@@ -25,6 +25,9 @@
 
 #back {
     float: right;
+    border:none;
+    color: #007BFF;
+    background-color: white;
 }
 #back img {
     background: transparent;
