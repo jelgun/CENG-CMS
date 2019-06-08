@@ -134,3 +134,11 @@ window.addEventListener('load', function() {
   });
 })
 
+
+let logout = document.getElementById('back');
+logout.addEventListener('click', () => {
+    var answer = confirm("Are you sure?")
+    if (answer) {
+        document.location.href = "../html/login.html";
+    }
+})

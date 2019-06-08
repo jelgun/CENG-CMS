@@ -49,3 +49,9 @@
     .vr {
         border-right: 1px solid #ccc !important;
      }
+#back {
+float: right;
+border:none;
+color: #007BFF;
+background-color: white;
+}
