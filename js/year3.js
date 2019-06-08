@@ -2,6 +2,7 @@ var prev = -1;
 var f = 0;
 
 const mysql = require('mysql');
+const fs = require('fs');
 
 const con = mysql.createConnection({
   host: 'localhost',
@@ -18,6 +19,13 @@ con.connect((err) => {
 });
 
 window.addEventListener('load', function() {
+  let rawdata = fs.readFileSync('extra/data.json');  
+  let data = JSON.parse(rawdata);
+  if (data["isAdmin"]) {
+    var element = document.getElementsByClassName('nav')[0]
+    var str = '<a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="adminOperations.html" role="tab" aria-controls="v-pills-home" aria-selected="true">Admin Operations</a>'
+    element.insertAdjacentHTML('beforeend', str);
+  }
   $query = 'SELECT * FROM Course WHERE status = 1 and courseCode like ?';
   con.query($query, "CENG 3%", function(err, rows) {
       if(err){

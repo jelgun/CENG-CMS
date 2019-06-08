@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const bcrypt = require('bcryptjs');
+const fs = require('fs');
 
 // First you need to create a connection to the db
 const con = mysql.createConnection({
@@ -15,8 +16,51 @@ con.connect((err) => {
 	  return;
 	}
 	console.log('Connection established');
-  });
+});
 
+var rawdata = fs.readFileSync('extra/undergraduate.json');  
+var data = JSON.parse(rawdata);
+var undergraduate_emails = data["emails"]
+rawdata = fs.readFileSync('extra/graduate.json');  
+data = JSON.parse(rawdata);
+var graduate_emails = data["emails"]
+rawdata = fs.readFileSync('extra/ceng.json');  
+data = JSON.parse(rawdata);
+var ceng_emails = data["emails"]
+var $query = "CREATE TABLE Email (emailgroup VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL);"
+con.query($query, function(err, rows) {
+	if(err){
+		console.log(err);
+		return;
+	}
+	for (let i = 0; i < undergraduate_emails.length; i++) {
+		var $query = "INSERT INTO Email(emailgroup, email) VALUES(?, ?);"
+		con.query($query,['Undergraduate', undergraduate_emails[i]], function(err, rows) {
+			if(err){
+				console.log(err);
+				return;
+			}
+		})
+	}
+	for (let i = 0; i < graduate_emails.length; i++) {
+		var $query = "INSERT INTO Email(emailgroup, email) VALUES(?, ?);"
+		con.query($query,['Graduate', graduate_emails[i]], function(err, rows) {
+			if(err){
+				console.log(err);
+				return;
+			}
+		})
+	}
+	for (let i = 0; i < ceng_emails.length; i++) {
+		var $query = "INSERT INTO Email(emailgroup, email) VALUES(?, ?);"
+		con.query($query,['CENG', ceng_emails[i]], function(err, rows) {
+			if(err){
+				console.log(err);
+				return;
+			}
+		})
+	}
+})
 var $query = 'CREATE TABLE User (username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, isAdmin INT);';
 con.query($query, function(err, rows) {
 	if(err){

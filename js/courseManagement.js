@@ -16,6 +16,13 @@ con.connect((err) => {
 });
 
 window.addEventListener('load', function() {
+  let rawdata = fs.readFileSync('extra/data.json');  
+  let data = JSON.parse(rawdata);
+  if (data["isAdmin"]) {
+    var element = document.getElementsByClassName('nav')[0]
+    var str = '<a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="adminOperations.html" role="tab" aria-controls="v-pills-home" aria-selected="true">Admin Operations</a>'
+    element.insertAdjacentHTML('beforeend', str);
+  }
   $query = 'SELECT courseCode, courseName FROM Course';
   con.query($query,function(err, rows) {
       if(err){

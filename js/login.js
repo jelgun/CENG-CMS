@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const bcrypt = require('bcryptjs');
+var fs = require('fs');
 
 const con = mysql.createConnection({
   host: 'localhost',
@@ -22,13 +23,17 @@ login.addEventListener('click', () => {
     let email = document.getElementById('email').value;
     let pass = document.getElementById('password').value;
     $query = 'SELECT * FROM User WHERE username = ?';
-    console.log('click')
     con.query($query, email, function(err, rows) {
         if(err){
             console.log(err);
             return;
         }
         if (rows.length && bcrypt.compareSync(pass, rows[0]["password"])) {
+          let rawdata = fs.readFileSync('extra/data.json');  
+          let data = JSON.parse(rawdata);
+          data["isAdmin"] = rows[0]["isAdmin"];
+          var jsonContent = JSON.stringify(data);
+          fs.writeFileSync('extra/data.json', jsonContent); 
           document.location.href = "../html/courseManagement.html";
         } else {
           alert("Wrong Credentials");
