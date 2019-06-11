@@ -38,12 +38,35 @@ window.addEventListener('load', function() {
         let edit = document.getElementsByClassName('edit')
         for (let i = 0; i < edit.length; i++)
             edit[i].addEventListener('click', () => {
+                var email = rows[i]["email"]
+                console.log(email)
+                var request = new XMLHttpRequest();
+                request.open("GET","../extra/data.json", false);
+                request.send(null);
+                var jsonData = JSON.parse(request.responseText);
+                jsonData["email"] = email
+                var jsonContent = JSON.stringify(jsonData);
+                fs.writeFileSync('extra/data.json', jsonContent); 
                 document.location.href = "../html/editEmail.html";
             })
         let del = document.getElementsByClassName('delete')
         for (let i = 0; i < del.length; i++)
             del[i].addEventListener('click', () => {
-                console.log('del')
+                var answer = confirm("Are you sure?")
+                if (answer) {
+                    var rawdata = fs.readFileSync('extra/data.json');  
+                    var data = JSON.parse(rawdata);
+                    var group = data["groupView"];
+                    var oldEmail = rows[i]["email"]
+                    var $query = "DELETE FROM Email WHERE emailgroup = ? and email = ?;";
+                    con.query($query, [group, oldEmail], function(err, rows) {
+                        if(err){
+                            console.log(err);
+                            return;
+                        }
+                    });
+                    document.location.href = "../html/emailList.html";
+                }
             })
     })
     
