@@ -20,12 +20,13 @@
       </div>
       <div class="col-9">
         <button id="back"><i class="fas fa-sign-out-alt fa-2x"></i></button>
-        <select name="forma" onchange="location = this.value;">
+        <select id="option" name="forma" onchange="location = this.value;">
           <option value="#" selected>First Year</option>
           <option value="year2.html">Second Year</option>
           <option value="year3.html">Third Year</option>
           <option value="year4.html">Fourth Year</option>
         </select>
+        
         <div style="width:700px;">
           
           <div class="left">
@@ -37,17 +38,20 @@
             </table>
           </div>
           <div class="right">
-            <table>
+            <table class="table table-striped">
+              <thead>
+                <tr class="bg-primary">
+                  <th scope="col">Hours</th>
+                  <th scope="col">Monday</th>
+                  <th scope="col">Tuesday</th>
+                  <th scope="col">Wednesday</th>
+                  <th scope="col">Thursday</th>
+                  <th scope="col">Friday</th>
+                </tr>
+              </thead>
+              <tbody>
               <tr>
-                <td class="blank"></td>
-                <td class="title">Monday</td>
-                <td class="title">Tuesday</td>
-                <td class="title">Wednesday</td>
-                <td class="title">Thursday</td>
-                <td class="title">Friday</td>
-              </tr>
-              <tr>
-                <td class="time">08:45</td>
+                <th scope="row" class="time" >08:45 09:30</th>
                 <td id="0" class="rc-1-1 drop"></td>
                 <td id="1" class="rc-1-2 drop"></td>
                 <td id="2" class="rc-1-3 drop"></td>
@@ -55,7 +59,7 @@
                 <td id="4" class="rc-1-5 drop"></td>
               </tr>
               <tr>
-                <td class="time">09:45</td>
+                <th scope="row" class="time" >09:45 10:30</th>
                 <td id="5" class="rc-2-1 drop"></td>
                 <td id="6" class="rc-2-2 drop"></td>
                 <td id="7" class="rc-2-3 drop"></td>
@@ -63,7 +67,7 @@
                 <td id="9" class="rc-2-5 drop"></td>
               </tr>
               <tr>
-                <td class="time">10:45</td>
+                <th scope="row" class="time" >10:45 11:30</th>
                 <td id="10" class="rc-3-1 drop"></td>
                 <td id="11" class="rc-3-2 drop"></td>
                 <td id="12" class="rc-3-3 drop"></td>
@@ -71,19 +75,16 @@
                 <td id="14" class="rc-3-5 drop"></td>
               </tr>
               <tr>
-                <td class="time">11:45</td>
+                <th scope="row" class="time" >11:45 12:30</th>
                 <td id="15" class="rc-4-1 drop"></td>
                 <td id="16" class="rc-4-2 drop"></td>
                 <td id="17" class="rc-4-3 drop"></td>
                 <td id="18" class="rc-4-4 drop"></td>
                 <td id="19" class="rc-4-5 drop"></td>
               </tr>
+              
               <tr>
-                <td class="time">12:30</td>
-                <td class="lunch" colspan="5">Lunch</td>
-              </tr>
-              <tr>
-                <td class="time">13:30</td>
+                <th scope="row" class="time" >13:30 14:15</th>
                 <td id="20" class="rc-5-1 drop"></td>
                 <td id="21" class="rc-5-2 drop"></td>
                 <td id="22" class="rc-5-3 drop"></td>
@@ -91,7 +92,7 @@
                 <td id="24" class="rc-5-5 drop"></td>
               </tr>
               <tr>
-                <td class="time">14:30</td>
+                <th scope="row" class="time" >14:30 15:15</th>
                 <td id="25" class="rc-6-1 drop"></td>
                 <td id="26" class="rc-6-2 drop"></td>
                 <td id="27" class="rc-6-3 drop"></td>
@@ -99,7 +100,7 @@
                 <td id="29" class="rc-6-5 drop"></td>
               </tr>
               <tr>
-                <td class="time">15:30</td>
+                <th scope="row" class="time" >15:30 16:15</th>
                 <td id="30" class="rc-7-1 drop"></td>
                 <td id="31" class="rc-7-2 drop"></td>
                 <td id="32" class="rc-7-3 drop"></td>
@@ -107,13 +108,14 @@
                 <td id="34" class="rc-7-5 drop"></td>
               </tr>
               <tr>
-                <td class="time">16:30</td>
+                <th scope="row" class="time" >16:30 17:15</th>
                 <td id="35" class="rc-8-1 drop"></td>
                 <td id="36" class="rc-8-2 drop"></td>
                 <td id="37" class="rc-8-3 drop"></td>
                 <td id="38" class="rc-8-4 drop"></td>
                 <td id="39" class="rc-8-5 drop"></td>
               </tr>
+            </tbody>
             </table>
           </div>
         </div>

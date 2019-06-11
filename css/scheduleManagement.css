@@ -2,56 +2,72 @@
     width:120px;
     float:left;
     }
+    
     .left table{
-    background:#E0ECFF;
+    background:white;
+    margin-top: 10px;
     }
+    
     .left td{
-    background:#eee;
+    background:white;
     }
+    
     .right{
+    margin-top: 10px;
     float:right;
     width:570px;
     }
     .right table{
-    background:#E0ECFF;
     width:100%;
+    
     }
+    
     .right td{
-    background:#fafafa;
-    color:#444;
     text-align:center;
-    padding:2px;
     }
-    .right td{
-    background:#E0ECFF;
+    .right th{
+        text-align:center;
+        width: 155px;
+        }
+    .time {
+        font-size: 70%;
     }
     .right td.drop{
-    background:#fafafa;
     width:100px;
     }
+    
     .right td.over{
     background:#FBEC88;
     }
+    
     .item{
     text-align:center;
     border:1px solid #499B33;
-    background:#fafafa;
-    color:#444;
-    width:100px;
+    background: white;
+    color: #494949;
+    width:90px;
+    height: 25px;
+    
     }
+    
     .assigned{
-    border:1px solid #BC2A4D;
+    border:none;
+    background: transparent;
     }
+    
     .trsh{
     background-color:rgb(243, 29, 29);
     text-align: center;
     }
+    
     .vr {
         border-right: 1px solid #ccc !important;
      }
-#back {
-float: right;
-border:none;
-color: #007BFF;
-background-color: white;
-}
+    
+    #back {
+    float: right;
+    border:none;
+    color: #007BFF;
+    background-color: white;
+    }
+    

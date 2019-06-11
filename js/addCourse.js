@@ -143,8 +143,9 @@ save.addEventListener('click', () => {
                 }
             });
         }
+        document.location.href = "../html/courseManagement.html";
     }
-    document.location.href = "../html/courseManagement.html";
+    
 })
 
 let back = document.getElementById('left-arrow');

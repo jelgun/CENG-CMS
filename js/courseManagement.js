@@ -15,6 +15,14 @@ con.connect((err) => {
   console.log('Connection established');
 });
 
+function compare( a, b ) {
+  if ( a["courseCode"] <= b["courseCode"] ){
+    return -1;
+  }
+  return 1;
+}
+
+
 window.addEventListener('load', function() {
   let rawdata = fs.readFileSync('extra/data.json');  
   let data = JSON.parse(rawdata);
@@ -29,6 +37,7 @@ window.addEventListener('load', function() {
           console.log(err);
           return;
       }
+      rows.sort( compare );
       var element = document.getElementsByClassName('courses')[0]
       for (let i = 0; i < rows.length; i++) {
         var course = rows[i]["courseCode"] + ' ' + rows[i]["courseName"]
