@@ -18,7 +18,7 @@
     width:570px;
     }
     .right table{
-    width:100%;
+    width:120%;
     
     }
     
@@ -26,11 +26,11 @@
     text-align:center;
     }
     .right th{
-        text-align:center;
+        text-align:left;
         width: 155px;
         }
     .time {
-        font-size: 70%;
+        font-size: 90%;
     }
     .right td.drop{
     width:100px;
@@ -41,8 +41,8 @@
     }
     
     .item{
-    text-align:center;
-    border:1px solid #499B33;
+    text-align:left;
+    border:1px solid rgb(0, 110, 255);
     background: white;
     color: #494949;
     width:90px;
@@ -56,7 +56,8 @@
     }
     
     .trsh{
-    background-color:rgb(243, 29, 29);
+    padding-top: 10px;
+    padding-left: 28px;
     text-align: center;
     }
     
