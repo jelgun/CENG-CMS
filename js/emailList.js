@@ -32,10 +32,21 @@ window.addEventListener('load', function() {
         var element = document.getElementsByClassName('list-group')[0]
         for (let i = 0; i < rows.length; i++) {
             var email = rows[i]["email"]
-            var str = '<li class="list-group-item mydivouter">'+email+'<input type="button" id="btn-modify" class="mybuttonoverlap btn btn-info" value="Edit"/><input type="button" id="btn-modify" class="mybuttonoverlap btn btn-info" value="Delete"/> </li>'
+            var str = '<li class="list-group-item mydivouter">'+email+'<input type="button" id="btn-modify" class="mybuttonoverlap btn btn-info edit" value="Edit"/><input type="button" id="btn-modify" class="mybuttonoverlap btn btn-info delete" value="Delete"/> </li>'
             element.insertAdjacentHTML('beforeend', str);
         }
+        let edit = document.getElementsByClassName('edit')
+        for (let i = 0; i < edit.length; i++)
+            edit[i].addEventListener('click', () => {
+                document.location.href = "../html/editEmail.html";
+            })
+        let del = document.getElementsByClassName('delete')
+        for (let i = 0; i < del.length; i++)
+            del[i].addEventListener('click', () => {
+                console.log('del')
+            })
     })
+    
 })
 let back = document.getElementById('left-arrow');
 back.addEventListener('click', () => {
@@ -48,4 +59,9 @@ logout.addEventListener('click', () => {
     if (answer) {
         document.location.href = "../html/login.html";
     }
+})
+
+let add = document.getElementById('add')
+add.addEventListener('click', () => {
+    document.location.href = "../html/addEmail.html";
 })

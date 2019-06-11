@@ -16,11 +16,7 @@ con.connect((err) => {
 });
 
 window.addEventListener('load', function() {
-    document.getElementById('fileInput').onchange = function () {
-        var rawdata = fs.readFileSync(this.files[0].path);  
-        var data = JSON.parse(rawdata);
-        console.log(data)
-    };
+    
     let rawdata = fs.readFileSync('extra/data.json');  
     let data = JSON.parse(rawdata);
     if (data["isAdmin"]) {
@@ -64,3 +60,18 @@ logout.addEventListener('click', () => {
         document.location.href = "../html/login.html";
     }
 })
+
+document.getElementById('fileInput').onchange = function () {
+    var rawdata = fs.readFileSync(this.files[0].path);  
+    var data = JSON.parse(rawdata);
+    for (let i = 0; i < data["emails"].length; i++) {
+        var $query = 'INSERT INTO Email(emailgroup, email) VALUES(?, ?);'
+        con.query($query, [data["name"], data["emails"][i]], function(err, rows) {
+            if(err){
+                console.log(err);
+                return;
+            }
+        })
+    }
+    location.reload();
+};

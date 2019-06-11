@@ -1,0 +1,34 @@
+
+#back {
+    float: right;
+    border:none;
+    color: #007BFF;
+    background-color: white;
+
+}
+
+#email{
+    margin-top: 50px;
+    margin-left: 45px;
+    height: 35px;
+    width: 270px;
+}
+
+#button{
+    margin-top: 10px;
+    margin-left: 45px;
+    height: 35px;
+    width: 80px;
+}
+
+#left-arrow{
+  float: left;
+  border:none;
+  color: #007BFF;
+  background-color: white;
+}
+
+
+.vr {
+    border-right: 1px solid #ccc !important;
+ }
