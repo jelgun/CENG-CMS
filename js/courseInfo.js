@@ -14,7 +14,7 @@ con.connect((err) => {
   }
   console.log('Connection established');
 });
-
+var courseCode = ""
 window.addEventListener('load', function() {
     let rawdata = fs.readFileSync('extra/data.json');  
     let data = JSON.parse(rawdata);
@@ -81,7 +81,7 @@ window.addEventListener('load', function() {
         str = '<h4>'+rows[0]["courseName"]+'</h4>'
         element.insertAdjacentHTML('beforeend', str);
         element = document.getElementsByClassName('coursePrerequisite')[0]
-        pre = rows[0]["coursePrerequisite"] ? rows[0]["coursePrerequisite"] : 'Null'
+        pre = rows[0]["prerequisite"] ? rows[0]["prerequisite"] : 'Null'
         str = '<h4>'+'Prerequisite: '+pre+'</h4>'
         element.insertAdjacentHTML('beforeend', str);
         element = document.getElementsByClassName('courseStatus')[0]
@@ -106,3 +106,33 @@ logout.addEventListener('click', () => {
         document.location.href = "../html/login.html";
     }
 })
+
+let edit = document.getElementById('delete');
+edit.addEventListener('click', () => {
+    var answer = confirm("Are you sure?")
+    if (answer) {
+        var $query = 'DELETE FROM Course WHERE courseCode = ?'
+        con.query($query, courseCode, function(err, rows) {
+            if(err){
+                console.log(err);
+                return;
+            }
+        })
+        var $query = 'DELETE FROM CourseTeacher WHERE courseCode = ?'
+        con.query($query, courseCode, function(err, rows) {
+            if(err){
+                console.log(err);
+                return;
+            }
+        })
+        var $query = 'DELETE FROM CourseAssistant WHERE courseCode = ?'
+        con.query($query, courseCode, function(err, rows) {
+            if(err){
+                console.log(err);
+                return;
+            }
+        })
+        document.location.href = "../html/courseManagement.html";
+    }
+})
+

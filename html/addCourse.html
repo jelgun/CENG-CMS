@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Add a Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/addCourse.css">
+    <script src="https://kit.fontawesome.com/bf6ed82bf9.js"></script>
+
+  	</head>
+  	<body>
+    <div class="row">
+      	<div class="col-3 vr">
+        	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          		<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-home" aria-selected="true">Course Management</a>
+          		<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="scheduleManagement.html" role="tab" aria-controls="v-pills-profile" aria-selected="false">Schedule Management</a>
+          		<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="notificationManagement.html" role="tab" aria-controls="v-pills-messages" aria-selected="false">Notification Management</a>
+        	</div>
+    	</div>
+
+    	<div class="col-3">
+            
+
+			<button id="left-arrow"><i class="fas fa-angle-left fa-2x"></i></button>
+			<h3 id="header" class="ml-5">Courses</h3>
+
+				<div class="col">
+					<br/>
+					<input id = "courseCode" class="row" type="text" placeholder="Course Code">
+					<br/>
+					<input class="row" type="text" id="courseName" placeholder="Course Name">
+					<br/>
+
+
+					<div class="row">
+				    	<div class="col-lg-15">
+				    		<h4>Choose Instructors</h4>
+                            <select id="teachers" multiple>
+                            </select>
+                           
+                            <h4>Choose Prerequisite</h4>
+                            <select id="prerequisite">
+                                <option value="">None</option>
+                            </select>
+
+                            <h4>Choose Assistants</h4>
+                            <select id="assistants" multiple>
+                            </select>
+                            <div  id="textarea" class="form-group shadow-textarea">
+                                    <br/>
+                                      <textarea id="courseInfo" cols="70" rows="7" placeholder="Course Information..."></textarea>
+                                </div>	
+                                <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input checkbox" id="defaultUnchecked">
+                                        <label class="custom-control-label" for="defaultUnchecked">Active</label>
+                                    </div>
+                                    <div id = "saveButton" class="row">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>		
+						</div>
+				  	</div>
+
+                      
+					
+
+				</div>
+                
+                <div class="row">
+                    
+                </div>
+                
+		</div>
+
+		<div class="col-6">
+
+			<button id="back"><i class="fas fa-sign-out-alt fa-2x"></i></button>
+				
+
+					
+			
+		</div>
+	</div>
+
+    </div>
+ 
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../js/addCourse.js"></script>
+
+
+    
+    </body>
+</html>

@@ -54,7 +54,10 @@ window.addEventListener('load', function() {
       }
     })
 })
-
+let addcourse = document.getElementById('add')
+addcourse.addEventListener('click', () => {
+  document.location.href = "../html/addCourse.html";
+})
 let logout = document.getElementById('back');
 logout.addEventListener('click', () => {
     var answer = confirm("Are you sure?")
