@@ -1,0 +1,42 @@
+
+#back {
+    float: right;
+    border:none;
+    color: #007BFF;
+    background-color: white;
+
+}
+
+#email{
+    margin-top: 40px;
+    margin-left: 100px;
+    height: 35px;
+    width: 250px;
+}
+
+#password{
+    margin-top: 15px;
+    margin-left: 100px;
+    height: 35px;
+    width: 250px;
+}
+
+#button{
+    float: left;
+    margin-top: 30px;
+    margin-left: 180px;
+    height: 35px;
+    width: 80px;
+}
+
+#left-arrow{
+  float: left;
+  border:none;
+  color: #007BFF;
+  background-color: white;
+}
+
+
+.vr {
+    border-right: 1px solid #ccc !important;
+ }

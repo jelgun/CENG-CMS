@@ -1,5 +1,5 @@
 
-#button1{
+#add{
     float: left;
     margin-top: 40px;
     height: 35px;
@@ -8,7 +8,7 @@
 
 }
 
-#button2{
+#send{
     float: left;
     margin-top: 20px;
     height: 35px;

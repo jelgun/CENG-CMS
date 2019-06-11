@@ -39,11 +39,8 @@ window.addEventListener('load', function() {
         for (let i = 0; i < edit.length; i++)
             edit[i].addEventListener('click', () => {
                 var email = rows[i]["email"]
-                console.log(email)
-                var request = new XMLHttpRequest();
-                request.open("GET","../extra/data.json", false);
-                request.send(null);
-                var jsonData = JSON.parse(request.responseText);
+                var content=fs.readFileSync("extra/data.json", "utf8");
+                var jsonData = JSON.parse(content);
                 jsonData["email"] = email
                 var jsonContent = JSON.stringify(jsonData);
                 fs.writeFileSync('extra/data.json', jsonContent); 
