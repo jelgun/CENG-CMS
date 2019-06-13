@@ -1,0 +1,37 @@
+
+.fa-angle-left {
+    margin-top: 5px;
+    color: Dodgerblue;
+    font-size: 30px;
+}
+
+
+#saveButton{
+    margin-left: 3px;
+    margin-top: 10px;
+}
+
+#left-arrow{
+  float: left;
+  border:none;
+  color: #007BFF;
+  background-color: white;
+}
+
+#header{
+    margin-top: 5px;
+}
+
+#back {
+    float: right;
+    border:none;
+    color: #007BFF;
+    background-color: white;
+
+}
+
+.vr {
+    border-right: 1px solid #ccc !important;
+ }
+
+ 

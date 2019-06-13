@@ -107,8 +107,13 @@ logout.addEventListener('click', () => {
     }
 })
 
-let edit = document.getElementById('delete');
+let edit = document.getElementById('edit')
 edit.addEventListener('click', () => {
+    document.location.href = "../html/editCourse.html";
+})
+
+let del = document.getElementById('delete');
+del.addEventListener('click', () => {
     var answer = confirm("Are you sure?")
     if (answer) {
         var $query = 'DELETE FROM Course WHERE courseCode = ?'
